@@ -50,5 +50,10 @@ Vue.component('items-card', {
 
             this.$emit("dataProduct", this.carts)
         }
+    },
+    watch: {
+        products: function(value){
+            
+        }
     }
 })

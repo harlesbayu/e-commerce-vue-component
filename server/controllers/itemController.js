@@ -81,7 +81,13 @@ module.exports = {
     },
 
     findByName: function(req,res){
-        
+        Item.find({name: new RegExp(req.query.product, 'i')})
+        .populate('category')
+        .then(function(items){
+            res.status(200).json({
+                items
+            })
+        })
     }
 
 }

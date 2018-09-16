@@ -1,5 +1,5 @@
 Vue.component('contents', {
-    props : ["loginStatus"],
+    props : ["loginStatus", "searchByName"],
     components : {
         "items-cart" : itemsCart
     },
@@ -44,8 +44,11 @@ Vue.component('contents', {
             })
         },
     },
-    // v-for="(item, index) in items" :products="items" :product="item" :idx="index"  :key="index"
-
+    watch: {
+        searchByName: function(value){
+            this.items = value
+        }
+    }
 })
 
 

@@ -1,7 +1,8 @@
 var app = new Vue({
     el: '#app',
     data: {
-        cekLogin : false
+        cekLogin : false,
+        items : [],
     },
     created: function () {
         this.checkLogin()

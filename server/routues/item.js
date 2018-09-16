@@ -6,6 +6,6 @@ routes.get('/categories/:id', filterByCategory)
 routes.post('/create', create)
 routes.put('/update/:id', update)
 routes.delete('/remove/:id', remove)
-routes.get('findbyname/:name', findByName)
+routes.get('/findByName', findByName)
 
 module.exports = routes

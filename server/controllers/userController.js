@@ -6,33 +6,27 @@ module.exports = {
 
     signup: function(req,res){
 
-        generatePassword(req.body.email, req.body.password)
-        .then(function(passwordhasGenerate){
-            let dataUser = new User({
-                name : req.body.name,
-                gender : req.body.phoneNumber,
-                address : req.body.address,
-                email : req.body.email,
-                password : passwordhasGenerate
-            })
-            return dataUser
+        let dataUser = new User({
+            name : req.body.name,
+            gender : req.body.phoneNumber,
+            address : req.body.address,
+            email : req.body.email,
+            phoneNumber : req.body.phoneNumber, 
+            password : req.body.password
         })
-        .then(function(dataUser){
-            dataUser.save()
-            .then(function(user){
-                res.status(200).json({
-                    message : `Registrasi berhasil`
-                })
-            })
-            .catch(function(err){
-                res.status(500).json({
-                    err
-                })
+        dataUser.save()
+        .then(function(user){
+            res.status(200).json({
+                message : `Registrasi berhasil`
             })
         })
         .catch(function(err){
-            console.log(err)
-        })   
+            res.status(500).json({
+                err
+            })
+        })
+      
+          
     },
 
     signin: function(req,res){

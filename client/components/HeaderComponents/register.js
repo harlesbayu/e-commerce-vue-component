@@ -103,19 +103,36 @@ const registerUser = {
                 email : this.email,
                 password : this.password
             }
-
-            // let self = this
+            
+            let self = this
             axios({
                 method: "POST",
                 url: 'http://localhost:5000/users/signup',
                 data
             })
             .then(function (result) {
-                console.log(result)
+                location.reload()
             })
             .catch(function (err){
-                console.log(err)
+
+                console.log(err.response)
+
+                if(err.response.data.err.errors){
+                    if(err.response.data.err.errors.name){
+                        self.name = err.response.data.err.errors.name.message
+                    }
+                    if(err.response.data.err.errors.address){
+                        self.address = err.response.data.err.errors.address.message
+                    }
+                    if(err.response.data.err.errors.phoneNumber){
+                        self.phoneNumber = err.response.data.err.errors.phoneNumber.message
+                    }
+                    if(err.response.data.err.errors.email){
+                        self.email = err.response.data.err.errors.email.message
+                    }
+                }
+                
             })
         }
-    }
+    },
 }

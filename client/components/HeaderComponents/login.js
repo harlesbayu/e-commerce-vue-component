@@ -12,6 +12,9 @@ const loginUser = {
                 </button>
             </div>
             <div class="modal-body">
+
+                <p v-if="error" style="color:red"> {{ errorMessage }} <p>
+
                 <div class="form-group row">
                     <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
                     <div class="col-sm-10">
@@ -28,7 +31,7 @@ const loginUser = {
                 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" >Close</button>
                 <button type="button" class="btn btn-primary" v-on:click="signinUser()">Submit</button>
             </div>
         </div>
@@ -38,7 +41,9 @@ const loginUser = {
     data: function(){
         return {
             email: '',
-            password: '',    
+            password: '',  
+            error : false,
+            errorMessage : '', 
         }
     },
     methods: {
@@ -55,13 +60,21 @@ const loginUser = {
                 data
             })
             .then(function (response) {
-                // console.log(result)
                 localStorage.setItem('token', response.data.token)
                 location.reload()
             })
             .catch(function (err){
-                // console.log(err.response.data.message)
+                self.error = true
+                self.errorMessage = err.response.data.message
             })
+        }
+    },
+    watch: {
+        email: function(){
+            this.error = false
         },
+        password: function(){
+            this.error = false
+        }
     }
 }

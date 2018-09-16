@@ -13,8 +13,7 @@ Vue.component('headers', {
                 <div class="nav-left">
                     <span><i></i>SagalaAya</span>
                     <form class="form-inline" id="search">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" v-model="searchbyname">
                     </form>
                 </div>
                 <ul id="haveLogin" v-if="loginStatus">
@@ -48,22 +47,28 @@ Vue.component('headers', {
     </div>
     `,
     data: function () {
-        return {
-          
-        }
-    },
-    created: function(){
-        
+        return {}
     },
     methods: {
         logoutUser: function(){
             localStorage.removeItem('token')
             location.reload()
+        },
+    },
+    computed: {
+        searchbyname : {
+            set: function(value){
+               let self = this
+               axios({
+                   method : "GET",
+                   url : `http://localhost:5000/items/findByName?product=${value}`
+               })
+               .then(function(response){
+                    self.$emit("searchbyname", response.data.items)
+               })
+            },
+            get: function(value){}
         }
     },
-    watch: {
-        // loginStatus(value){
-            
-        // }
-    }
+  
 })

@@ -7,7 +7,7 @@ require('dotenv').config()
 const app     = express()
 const port    = 5000
 
-mongoose.connect(process.env.URL_MONGO_LOCAL, {useNewUrlParser : false})
+mongoose.connect(process.env.URL_MONGO_MLAB, {useNewUrlParser : false})
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
