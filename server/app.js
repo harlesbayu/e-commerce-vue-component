@@ -5,7 +5,7 @@ const routes   = require('./routues')
 require('dotenv').config()
 
 const app     = express()
-const port    = 5000
+const port    = process.env.PORT || 3000
 
 mongoose.connect(process.env.URL_MONGO_MLAB, {useNewUrlParser : false})
 
