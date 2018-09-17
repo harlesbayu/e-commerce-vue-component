@@ -30,7 +30,6 @@ module.exports = {
     },
 
     signin: function(req,res){
-        // console.log(req.body)
         let user = null
         User.findOne({
             email : req.body.email

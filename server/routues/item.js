@@ -1,4 +1,5 @@
 const routes = require('express').Router()
+const { isAdmin } = require('../middleware')
 const { findByName, findAll, filterByCategory, create, update, remove } = require('../controllers/itemController')
 
 routes.get('/', findAll)

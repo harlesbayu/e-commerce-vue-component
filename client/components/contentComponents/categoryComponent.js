@@ -25,7 +25,7 @@ Vue.component('items-category', {
             let self = this
             axios({
                     method: 'GET',
-                    url: 'http://localhost:5000/categories'
+                    url: 'http://ecommerce.harlesbayuanggara.tech/categories'
                 })
                 .then(function (result) {
                     self.categories = result.data.categories
@@ -35,7 +35,7 @@ Vue.component('items-category', {
             let self = this
             axios({
                     method: 'GET',
-                    url: `http://localhost:5000/items/categories/${categoryId}`
+                    url: `http://ecommerce.harlesbayuanggara.tech/items/categories/${categoryId}`
                 })
                 .then(function (result) {
                     self.itemsByCat = result.data.items
@@ -46,7 +46,7 @@ Vue.component('items-category', {
             let self = this
             axios({
                 method: "GET",
-                url: 'http://localhost:5000/items'
+                url: 'http://ecommerce.harlesbayuanggara.tech/items'
             })
             .then(function (result) {
                 self.itemsByCat = result.data.items

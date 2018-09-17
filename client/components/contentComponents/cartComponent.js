@@ -59,7 +59,7 @@ const itemsCart = {
 
             axios({
                 method: "POST",
-                url: "http://localhost:5000/transactions/create",
+                url: "http://ecommerce.harlesbayuanggara.tech/transactions/create",
                 data:{
                     cart : this.products
                 },

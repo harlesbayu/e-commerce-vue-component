@@ -61,7 +61,7 @@ Vue.component('headers', {
                let self = this
                axios({
                    method : "GET",
-                   url : `http://localhost:5000/items/findByName?product=${value}`
+                   url : `http://ecommerce.harlesbayuanggara.tech/items/findByName?product=${value}`
                })
                .then(function(response){
                     self.$emit("searchbyname", response.data.items)

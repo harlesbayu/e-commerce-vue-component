@@ -37,7 +37,7 @@ Vue.component('contents', {
             let self = this
             axios({
                 method: "GET",
-                url: 'http://localhost:5000/items'
+                url: 'http://ecommerce.harlesbayuanggara.tech/items'
             })
             .then(function (result) {
                 self.items = result.data.items

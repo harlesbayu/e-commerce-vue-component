@@ -107,7 +107,7 @@ const registerUser = {
             let self = this
             axios({
                 method: "POST",
-                url: 'http://localhost:5000/users/signup',
+                url: 'http://ecommerce.harlesbayuanggara.tech/users/signup',
                 data
             })
             .then(function (result) {
