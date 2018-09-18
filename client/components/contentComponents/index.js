@@ -15,6 +15,8 @@ Vue.component('contents', {
             
                 <div class="col-9">
                     <items-card v-bind:login-status="loginStatus" v-bind:products="items" @dataProduct="carts=$event"></items-card>
+
+                    
                 </div>
 
                 <items-cart v-bind:products="carts"></items-cart>

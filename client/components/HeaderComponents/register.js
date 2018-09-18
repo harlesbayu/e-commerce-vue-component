@@ -107,15 +107,13 @@ const registerUser = {
             let self = this
             axios({
                 method: "POST",
-                url: 'http://ecommerce.harlesbayuanggara.tech/users/signup',
+                url: 'http://localhost:3000/users/signup',
                 data
             })
             .then(function (result) {
                 location.reload()
             })
             .catch(function (err){
-
-                console.log(err.response)
 
                 if(err.response.data.err.errors){
                     if(err.response.data.err.errors.name){

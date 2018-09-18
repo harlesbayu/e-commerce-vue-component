@@ -56,7 +56,7 @@ const loginUser = {
             let self = this
             axios({
                 method: "POST",
-                url: 'http://ecommerce.harlesbayuanggara.tech/users/signin',
+                url: 'http://localhost:3000/users/signin',
                 data
             })
             .then(function (response) {

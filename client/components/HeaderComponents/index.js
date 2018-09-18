@@ -1,7 +1,8 @@
 Vue.component('headers', {
     components: {
         "login"  : loginUser,
-        "register" : registerUser
+        "register" : registerUser,
+        "transaction" : transactionUser
     },
     props : ["loginStatus"],
     template:
@@ -19,7 +20,7 @@ Vue.component('headers', {
                 <ul id="haveLogin" v-if="loginStatus">
                     <li><i class="fas fa-shopping-cart menu-horizontal" data-toggle="modal" data-target="#checkoutModal"></i></li>
                     <li><i class="fas fa-comment menu-horizontal"></i></li>
-                    <li><i class="fas fa-handshake menu-horizontal"></i></li>
+                    <li><i class="fas fa-handshake menu-horizontal" data-toggle="modal" data-target="#transactionModal"></i></li>
                     <li><i class="fas fa-bell menu-horizontal"></i></li>
                     <li class="dropdown" id="mydropdown">
                         <a href="#" class="dropdown-toggle" id="mydropdownaccess" data-toggle="dropdown" role="button"
@@ -39,11 +40,14 @@ Vue.component('headers', {
         </div>
     </header>
 
-        <!-- Modal Login-->
+        <!-- Modal Login -->
         <login></login>
 
-        <!-- Modal Register-->
+        <!-- Modal Register -->
         <register></register>
+
+        <!== Modal Transaction -->
+        <transaction></transaction>
     </div>
     `,
     data: function () {
